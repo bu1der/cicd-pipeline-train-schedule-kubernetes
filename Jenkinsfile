@@ -5,6 +5,12 @@ pipeline {
         DOCKER_IMAGE_NAME = "bui1der/train-schedule"
     }
     stages {
+        stage('Git Checkout'){
+            steps {
+                cleanWs()
+                checkout scm
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Running build automation'
